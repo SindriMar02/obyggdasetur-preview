@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Óbyggðasetur Íslands · The Wilderness Center, Fljótsdalur</title>
+<meta name="description" content="The Wilderness Center is an authentic hideaway at the edge of Northern Europe's largest wilderness. Day tours, unique accommodation, exhibition and local food in Norðurdalur, Fljótsdalur, East Iceland.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF" id="themeColor">
+<meta name="color-scheme" content="light">
+<!-- relative hrefs + a raster twin: a project site lives under /repo-name/, and
+     Safari ignores SVG favicons, so either mistake shows the origin root's icon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon-180.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="preload" href="assets/fonts/Oswald-vf-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Sentient-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InterTight-vf-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/plate-hero.webp" fetchpriority="high"
+  imagesrcset="assets/img/plate-hero-sm.webp 1100w, assets/img/plate-hero.webp 2200w" imagesizes="100vw">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-nav-theme="light">
+
+<!-- fixed grid overlay (reference device: difference-blend hairlines) -->
+<div class="grid-overlay" aria-hidden="true">
+  <div class="go-line go-l1"></div><div class="go-line go-l2"></div>
+  <div class="go-line go-l3"></div><div class="go-line go-l4"></div><div class="go-line go-l5"></div>
+</div>
+
+<!-- intro wipe (single-page reuse of the reference's page-enter) -->
+<div class="intro-wipe" id="introWipe" aria-hidden="true"></div>
+
+<nav id="nav" aria-label="Main">
+  <div class="nav-contain">
+    <ul class="nav-ul nav-left">
+      <li><a class="btn nav-btn" href="#tours">Day tours</a></li>
+      <li><a class="btn nav-btn" href="#stay">Stay</a></li>
+      <li><a class="btn nav-btn" href="#journey">Getting here</a></li>
+    </ul>
+    <a class="nav-logo" href="#top" aria-label="Óbyggðasetur Íslands, back to top">
+      <span class="nav-logo_mark">ÓBYGGÐASETUR</span>
+      <span class="nav-logo_sub">The Wilderness Center</span>
+    </a>
+    <ul class="nav-ul nav-right">
+      <li><a class="btn nav-btn" href="#food">Restaurant</a></li>
+      <li><a class="btn nav-btn is-cta" href="#contact">Plan your visit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="cta-nav_wrap" id="ctaNav" aria-hidden="false">
+  <div class="cta-nav">
+    <a class="cta-nav_item" href="#stay">Book a stay</a>
+    <a class="cta-nav_item" href="#tours">Day tours</a>
+    <a class="cta-nav_item" href="#journey">Find us</a>
+  </div>
+</div>
+
+<main class="page-content" id="top">
+
+  <!-- ============ 0 · HERO ============ -->
+  <div class="hero" id="hero" data-nav-section data-nav-theme-val="light">
+    <div class="hero_wrapper" id="heroWrapper">
+      <div class="hero_bg">
+        <img src="assets/img/plate-hero.webp"
+          srcset="assets/img/plate-hero-sm.webp 1100w, assets/img/plate-hero.webp 2200w"
+          sizes="100vw" alt="The glacial river braiding through Norðurdalur valley, East Iceland highlands" fetchpriority="high">
+        <!-- scrubbed 0 -> 1 as the fog arrives, so the photo dissolves into paper
+             and its own bottom edge never reads as a seam. Pristine at rest. -->
+        <div class="hero_bg-fade" id="heroBgFade"></div>
+      </div>
+      <div class="hero_overlay"></div>
+      <div class="hero_content" id="heroContent" data-reveal>
+        <div class="hero_contain top container-large" data-hero-drift>
+          <p class="t-title-italic hero_kicker">The edge of Northern Europe's<br>largest wilderness</p>
+          <a class="btn hero_plan" href="#contact" data-cursor-text="Plan your visit">Plan your visit</a>
+        </div>
+        <div class="hero_title-contain" id="heroTitleWrap" data-hero-drift>
+          <h1 class="hero_title" id="heroTitle">Óbyggðir</h1>
+        </div>
+      </div>
+      <!-- fog: real alpha-channel cloud plates, transparent wisp at the top edge,
+           solid bank at the base, two speeds for depth -->
+      <div class="clouds-overlay_wrap clouds--far" data-scroll-speed="-10%" aria-hidden="true">
+        <img src="assets/img/fog-far.webp" alt="" loading="eager" decoding="async">
+      </div>
+      <div class="clouds-overlay_wrap clouds--mid" data-scroll-speed="-42%" aria-hidden="true">
+        <img src="assets/img/fog-veil.webp" alt="" loading="eager" decoding="async">
+      </div>
+      <div class="clouds-overlay_wrap clouds--near" data-scroll-speed="-80%" aria-hidden="true">
+        <img src="assets/img/fog-near.webp" alt="" loading="eager" decoding="async">
+      </div>
+    </div>
+    <!-- mist-transition: sticky plane scrubbed rotateX 90 -> 0 from its bottom
+         edge, so the fog stands up out of the page into the manifesto -->
+    <div class="mist-transition" id="mistTransition" aria-hidden="true">
+      <div class="mist-transition_image-container" id="mistPlane">
+        <img class="mist-transition_image" src="assets/img/fog-veil.webp" alt="" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 1 · MANIFESTO ============ -->
+  <section class="manifesto" data-nav-section data-nav-theme-val="dark">
+    <div class="container-large">
+      <div class="manifesto_layout">
+        <div class="manifesto_col">
+          <div class="manifesto_kicker u-relative">
+            <p class="t-title-italic">The last farm in the valley</p>
+            <svg class="scribble-el" id="scribble" width="191" height="62" viewBox="0 0 191 62" fill="none" aria-hidden="true">
+              <path d="M118.7 58.8C118.3 58.7 117.9 58.6 100.4 49.1 82.9 39.5 48.3 20.5 30.5 10.1 12.6 -0.4 12.5 -1.7 36.1 2.4 59.6 6.6 106.8 16.3 133.8 23 160.7 29.7 166 33.1 169.1 35.3 172.3 37.6 173.1 38.5 173.1 39.5 173.4 45.3 163.9 46.3 149.3 49.1 138.1 51.2 119 52.2 97.3 48.4 75.6 44.6 51.8 35.4 39.7 29.4 27.6 23.5 27.9 21.2 28.4 19.3 29 17.4 29.9 16.1 31.4 14.8 33 13.5 35.3 12.3 43.5 11.3 51.7 10.3 65.8 9.6 82.7 10.7 99.5 11.9 118.7 14.9 135.9 19.1 153.1 23.3 167.8 28.5 176.5 32 185.2 35.4 187.7 36.9 189.1 38.4 190.5 40 190.9 41.4 188.8 43.5 186.7 45.7 182.1 48.4 173.6 51.3 165 54.3 152.6 57.3 123.2 59.1 93.7 60.8 47.7 61 0.3 61.3" stroke="#BABABA" stroke-width="0.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="text-scroll-fade" id="maskDevelop">
+            <h2 class="manifesto_text">Cross the old wooden bridge and you step into the spirit of the past. A farm at the end of Norðurdalur where the buildings, the food and the hosts all play their part, and the wilderness begins at the fence line.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · OUR SEASON ============ -->
+  <section class="season has-inset" id="season" data-nav-section data-nav-theme-val="light">
+    <div class="season_inner">
+      <img class="img-fill" src="assets/img/plate-gorge.webp"
+        srcset="assets/img/plate-gorge-sm.webp 1100w, assets/img/plate-gorge.webp 2200w"
+        sizes="100vw" alt="A waterfall dropping into a basalt gorge on the Jökulsá in Fljótsdal" loading="lazy">
+      <div class="season_scrim"></div>
+      <div class="season_content container-large">
+        <div class="season_head">
+          <h3 class="h3-serif">Our season</h3>
+          <p class="season_body">Between mid May and the end of September the valley is open, green and awake. The exhibition and restaurant are open daily, and in winter the farm opens on request.</p>
+        </div>
+        <ul class="season_data">
+          <li><span class="data-num">15 May to 30 Sept</span><span class="data-label">Exhibition open daily 11 to 18</span></li>
+          <li><span class="data-num">All year</span><span class="data-label">Accommodation, open every season</span></li>
+          <li><span class="data-num">On request</span><span class="data-label">Winter opening and group visits</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · TOURS TITLE ============ -->
+  <section class="title-band" id="tours" data-nav-section data-nav-theme-val="dark">
+    <h3 class="section-title">Day tours</h3>
+    <p class="title-band_sub">From two hours to a whole day, riding or hiking, the same way our ancestors travelled. All tours run in English.</p>
+  </section>
+
+  <!-- ============ 4 · CARD-FLICK TOURS ============ -->
+  <section class="flick" data-nav-section data-nav-theme-val="dark">
+    <div class="container-large">
+      <div class="card-flick" id="cardFlick">
+
+        <a class="card-flick_item is-active" href="#contact" data-cursor-text="View tour">
+          <div class="card-flick_inner">
+            <img class="card-flick_image" src="assets/img/spa-retreat-hot-springs-center.webp" alt="The hot pool spa retreat at the Wilderness Center" loading="lazy">
+            <div class="card-flick_shade" aria-hidden="true"></div>
+            <div class="card-flick_content">
+              <h3 class="card-flick_title">Wilderness Spa Retreat</h3>
+              <div class="card-flick_meta"><span>3,200 ISK</span><span class="meta-div"></span><span>All year</span></div>
+              <p class="card-flick_excerpt">A truly relaxing escape in the hot pool above the river.</p>
+            </div>
+            <p class="card-flick_side">Spa Retreat</p>
+          </div>
+        </a>
+
+        <a class="card-flick_item" href="#contact" data-cursor-text="View tour">
+          <div class="card-flick_inner">
+            <img class="card-flick_image" src="assets/img/cable-bridge-jon.webp" alt="The traditional cableway across the glacial river Jökulsá" loading="lazy">
+            <div class="card-flick_shade" aria-hidden="true"></div>
+            <div class="card-flick_content">
+              <h3 class="card-flick_title">Abandoned Farm Hike</h3>
+              <div class="card-flick_meta"><span>11,000 ISK</span><span class="meta-div"></span><span>1 Jun to 30 Sep</span></div>
+              <p class="card-flick_excerpt">Winch yourself over the Jökulsá by cable cart and walk to the abandoned farm.</p>
+            </div>
+            <p class="card-flick_side">Farm Hike</p>
+          </div>
+        </a>
+
+        <a class="card-flick_item" href="#contact" data-cursor-text="View tour">
+          <div class="card-flick_inner">
+            <img class="card-flick_image" src="assets/img/old-farm-group-booking.webp" alt="Guests walking with Icelandic horses along the glacial river" loading="lazy">
+            <div class="card-flick_shade" aria-hidden="true"></div>
+            <div class="card-flick_content">
+              <h3 class="card-flick_title">Riding into the Wild</h3>
+              <div class="card-flick_meta"><span>17,700 ISK</span><span class="meta-div"></span><span>Daily 9 and 13</span></div>
+              <p class="card-flick_excerpt">Ride into the glacier valley on Icelandic horses.</p>
+            </div>
+            <p class="card-flick_side">Riding</p>
+          </div>
+        </a>
+
+        <a class="card-flick_item" href="#contact" data-cursor-text="View tour">
+          <div class="card-flick_inner">
+            <img class="card-flick_image" src="assets/img/plate-birch.webp" alt="The valley at dusk under the midnight sun" loading="lazy">
+            <div class="card-flick_shade" aria-hidden="true"></div>
+            <div class="card-flick_content">
+              <h3 class="card-flick_title">Midnight Ride</h3>
+              <div class="card-flick_meta"><span>23,500 ISK</span><span class="meta-div"></span><span>1 Jun to 22 Jul</span></div>
+              <p class="card-flick_excerpt">The midnight sun of an Icelandic summer night, on horseback.</p>
+            </div>
+            <p class="card-flick_side">Midnight</p>
+          </div>
+        </a>
+
+        <a class="card-flick_item" href="#contact" data-cursor-text="View tour">
+          <div class="card-flick_inner">
+            <img class="card-flick_image" src="assets/img/plate-gorge.webp" alt="Waterfall country upriver from the farm" loading="lazy">
+            <div class="card-flick_shade" aria-hidden="true"></div>
+            <div class="card-flick_content">
+              <h3 class="card-flick_title">Waterfall Trail</h3>
+              <div class="card-flick_meta"><span>52,000 ISK</span><span class="meta-div"></span><span>1 Jun to 31 Oct</span></div>
+              <p class="card-flick_excerpt">A whole day among the fifteen waterfalls of the Jökulsá.</p>
+            </div>
+            <p class="card-flick_side">Waterfalls</p>
+          </div>
+        </a>
+
+        <a class="card-flick_item" href="#contact" data-cursor-text="View tour">
+          <div class="card-flick_inner">
+            <img class="card-flick_image" src="assets/img/img-4882-22.webp" alt="Super jeeps on the snowy plateau above the valley" loading="lazy">
+            <div class="card-flick_shade" aria-hidden="true"></div>
+            <div class="card-flick_content">
+              <h3 class="card-flick_title">Super Jeep Adventure</h3>
+              <div class="card-flick_meta"><span>60,000 ISK summer</span><span class="meta-div"></span><span>66,000 winter</span></div>
+              <p class="card-flick_excerpt">Up out of the valley and onto the highland plateau.</p>
+            </div>
+            <p class="card-flick_side">Super Jeep</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · PRESS QUOTE ============ -->
+  <section class="quote-section" data-nav-section data-nav-theme-val="dark">
+    <div class="quote-sticky">
+      <figure class="quote-component container-large">
+        <blockquote class="t-quote">"The beautiful, creative displays are part museum and part art installation. It is unquestionably worth your time."</blockquote>
+        <figcaption class="quote-author">Virginia Van Zanten, Vogue</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 6 · THE RAIL ============ -->
+  <div class="rail_outer" id="stay" data-nav-section data-nav-theme-val="light">
+    <section class="rail" id="rail" aria-label="Accommodation at the Wilderness Center">
+      <div class="rail_wrapper">
+        <div class="rail_backdrops" aria-hidden="true">
+          <div class="rail_backdrop rail_backdrop--behind" id="railBehind">
+            <img class="img-fill" src="assets/img/plate-birch.webp"
+              srcset="assets/img/plate-birch-sm.webp 1100w, assets/img/plate-birch.webp 2200w" sizes="100vw" alt="" loading="lazy">
+          </div>
+          <div class="rail_backdrop rail_backdrop--clipped" id="railClipped">
+            <img class="img-fill" src="assets/img/plate-gorge.webp"
+              srcset="assets/img/plate-gorge-sm.webp 1100w, assets/img/plate-gorge.webp 2200w" sizes="100vw" alt="" loading="lazy">
+            <svg class="rail_curtain" id="railCurtain" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <clipPath id="curtainClip" clipPathUnits="objectBoundingBox">
+                  <rect x="0" y="0" width="0.3334" height="1"></rect>
+                  <rect x="0.3333" y="0" width="0.3334" height="1"></rect>
+                  <rect x="0.6666" y="0" width="0.3334" height="1"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="rail_overlay" id="railOverlay" aria-hidden="true"></div>
+        </div>
+        <div class="rail_container" id="railContainer">
+
+          <div class="rail_panel rail_panel--title">
+            <div class="rail_title-wrap">
+              <h2 class="rail_title" id="railTitle">Sleep in a museum</h2>
+            </div>
+          </div>
+
+          <div class="rail_panel">
+            <article class="camp-card" data-cursor-text="The stay">
+              <div class="camp-card_inner">
+                <img class="camp-card_image" src="assets/img/mg-4036-skorin.webp" alt="A guest turning the handle of the old projector in the farmhouse exhibition" loading="lazy">
+                <div class="camp-card_shade" aria-hidden="true"></div>
+                <div class="camp-card_content">
+                  <h3 class="camp-card_title">The Farmhouse</h3>
+                  <p class="camp-card_excerpt">Delightfully renovated old rooms above the exhibition. Every object in the house has a story, and you sleep among them.</p>
+                  <p class="camp-card_coords">[ N64 57.874 W15 09.199 ]</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="rail_panel">
+            <article class="camp-card" data-cursor-text="The stay">
+              <div class="camp-card_inner">
+                <img class="camp-card_image" src="assets/img/center-turf-house.webp" alt="The turf-roofed outbuilding below the farmhouse" loading="lazy">
+                <div class="camp-card_shade" aria-hidden="true"></div>
+                <div class="camp-card_content">
+                  <h3 class="camp-card_title">The Turf House</h3>
+                  <p class="camp-card_excerpt">Preserved and rebuilt the old way, turf roof against the mountain weather, the river below.</p>
+                  <p class="camp-card_coords">[ N64 57.874 W15 09.199 ]</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="rail_panel">
+            <article class="camp-card" data-cursor-text="The stay">
+              <div class="camp-card_inner">
+                <img class="camp-card_image" src="assets/img/center-pool.webp" alt="The hot pool at the Wilderness Center" loading="lazy">
+                <div class="camp-card_shade" aria-hidden="true"></div>
+                <div class="camp-card_content">
+                  <h3 class="camp-card_title">The Hot Pool</h3>
+                  <p class="camp-card_excerpt">Warm water at the edge of the wilderness, open to the valley and the birds.</p>
+                  <p class="camp-card_coords">[ N64 57.874 W15 09.199 ]</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="rail_panel rail_panel--full rail_panel--final">
+            <img class="img-fill" src="assets/img/center.webp" alt="The Wilderness Center farm and turf house seen from the hillside" loading="lazy">
+            <div class="rail_final-scrim" aria-hidden="true"></div>
+            <figure class="rail_quote">
+              <blockquote class="t-quote is-white">"A remote farm that offers museum exhibits, unique accommodation, local food, riding and hiking. The historic exhibits are of superb quality, as is the entire farm concept."</blockquote>
+              <figcaption class="quote-author is-white">Lonely Planet Guide</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 7 · THE JOURNEY ============ -->
+  <section class="journey" id="journey" data-nav-section data-nav-theme-val="light">
+    <div class="journey_head container-large">
+      <p class="layout-title_sm is-faded">65º 15' N 14º 24' W<br>Egilsstaðir</p>
+      <div class="journey_head-center">
+        <h3 class="h3-serif">To the end of the road</h3>
+        <p class="t-body is-faded">From Egilsstaðir the road follows Lagarfljót and climbs into Norðurdalur. Where it ends, the farm begins.</p>
+      </div>
+      <p class="layout-title_sm is-faded t-right">N64 57.874 W15 09.199<br>Óbyggðasetur</p>
+    </div>
+    <h2 class="journey_code" aria-label="Egilsstaðir to Óbyggðasetur">EGS<span class="journey_code-div"></span>ÓBS</h2>
+    <div class="journey_map-outer">
+      <div class="journey_thread" id="journeyThread">
+        <div class="thread-svg_wrap" id="flightWrap" aria-hidden="true">
+          <svg class="thread-svg" viewBox="0 0 600 1600" fill="none" preserveAspectRatio="none">
+            <path class="route-static" d="M300 0 C 300 180, 170 260, 165 430 C 160 610, 430 700, 435 890 C 440 1080, 175 1170, 172 1350 C 170 1470, 300 1520, 300 1600" stroke="rgba(30,42,32,.22)" stroke-width="1"/>
+          </svg>
+          <svg class="thread-svg" viewBox="0 0 600 1600" fill="none" preserveAspectRatio="none">
+            <path class="route-flown" id="routeFlown" d="M300 0 C 300 180, 170 260, 165 430 C 160 610, 430 700, 435 890 C 440 1080, 175 1170, 172 1350 C 170 1470, 300 1520, 300 1600" stroke="#77B7C5" stroke-width="1.5"/>
+          </svg>
+          <div class="route-indicator" id="routeIndicator">
+            <span class="pulse-ring" style="--i:1"></span>
+            <span class="pulse-ring" style="--i:2"></span>
+            <span class="pulse-ring" style="--i:3"></span>
+          </div>
+        </div>
+
+        <div class="waypoint is-right">
+          <div class="waypoint_text">
+            <p class="layout-title_sm is-faded">65º 15' N 14º 24' W</p>
+            <h4 class="waypoint_name">Egilsstaðir</h4>
+            <p class="waypoint_caption t-title-italic">Leave the ring road and turn up the valley.</p>
+          </div>
+        </div>
+
+        <div class="waypoint is-left">
+          <figure class="waypoint_card">
+            <img src="assets/img/plate-birch.webp" srcset="assets/img/plate-birch-sm.webp 1100w, assets/img/plate-birch.webp 2200w" sizes="(max-width:768px) 90vw, 30vw" alt="Birch woodland along Lagarfljót at dusk" loading="lazy">
+          </figure>
+          <div class="waypoint_text">
+            <h4 class="waypoint_name">Lagarfljót</h4>
+            <p class="waypoint_caption t-title-italic">The road follows the long lake into Fljótsdalur.</p>
+          </div>
+        </div>
+
+        <div class="waypoint is-right">
+          <figure class="waypoint_card">
+            <img src="assets/img/cable-bridge-jon.webp" alt="The hand-winched cableway across the Jökulsá" loading="lazy">
+          </figure>
+          <div class="waypoint_text">
+            <h4 class="waypoint_name">The road ends</h4>
+            <p class="waypoint_caption t-title-italic">Norðurdalur narrows, and the Jökulsá runs beside you with its fifteen waterfalls.</p>
+          </div>
+        </div>
+
+        <div class="waypoint is-left is-last">
+          <figure class="waypoint_card is-wide">
+            <img src="assets/img/center.webp" alt="The Wilderness Center farm across the wooden bridge" loading="lazy">
+          </figure>
+          <div class="waypoint_text">
+            <p class="layout-title_sm is-rust">N64 57.874 W15 09.199</p>
+            <h4 class="waypoint_name">Óbyggðasetur</h4>
+            <p class="waypoint_caption t-title-italic">Park, cross the wooden bridge, and step into the past.</p>
+          </div>
+        </div>
+      </div>
+      <div class="journey_data container-large">
+        <ul>
+          <li><span class="data-num">15</span><span class="data-label">waterfalls on the Jökulsá, more than any river in Iceland</span></li>
+          <li><span class="data-num">1</span><span class="data-label">cableway across the glacial river, winched by hand</span></li>
+          <li><span class="data-num">N64 57.874</span><span class="data-label">W15 09.199, Norðurdalur í Fljótsdal</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7b · EXHIBITION (dark vitrine) ============ -->
+  <section class="exhibit" id="exhibition" data-nav-section data-nav-theme-val="light">
+    <div class="container-large">
+      <div class="exhibit_layout">
+        <div class="exhibit_text">
+          <p class="layout-title_sm is-rust">The exhibition</p>
+          <h3 class="h3-serif is-white">Life in the wilderness</h3>
+          <p class="exhibit_body">Designed by the farm's own owners, a film director and a historian. Part museum and part art installation, it follows the people who lived out here, and you work the machines yourself.</p>
+          <dl class="exhibit_facts">
+            <div><dt>Open daily</dt><dd>11 to 18</dd></div>
+            <div><dt>Season</dt><dd>15 May to 30 September</dd></div>
+            <div><dt>Winter</dt><dd>On request</dd></div>
+          </dl>
+        </div>
+        <figure class="exhibit_frame" id="exhibitFrame">
+          <img src="assets/img/mg-4036-skorin.webp" alt="A guest turning the crank of the old projector inside the farmhouse exhibition" loading="lazy">
+          <figcaption class="layout-title_sm">Hand-cranked, on the ground floor</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · RESTAURANT (triptych + menu) ============ -->
+  <section class="food" id="food" data-nav-section data-nav-theme-val="dark">
+    <div class="container-large">
+      <header class="food_head">
+        <h3 class="section-title">Just like grandma's</h3>
+        <p class="food_intro">Everything is made in the old kitchen in front of our guests. Icelandic lamb, fish from the east, and baked goods made with rhubarb from our own field.</p>
+      </header>
+      <div class="food_strip" id="foodStrip">
+        <figure class="food_plate">
+          <img src="assets/img/restaurant-table.webp" alt="A set table in the old farmhouse dining room" loading="lazy">
+        </figure>
+        <figure class="food_plate">
+          <img src="assets/img/authentic-icelandic-food-restaurant.webp" alt="A plate of Icelandic lamb with local side dishes" loading="lazy">
+        </figure>
+        <figure class="food_plate">
+          <img src="assets/img/dessert.webp" alt="Dessert of the day made with rhubarb from the farm's own field" loading="lazy">
+        </figure>
+      </div>
+      <ul class="food_menu">
+        <li><span class="menu-name">Breakfast buffet</span><span class="menu-dots"></span><span class="menu-price">2,700 ISK</span></li>
+        <li><span class="menu-name">Soup with homemade bread</span><span class="menu-dots"></span><span class="menu-price">3,000 ISK</span></li>
+        <li><span class="menu-name">Course of the day</span><span class="menu-dots"></span><span class="menu-price">4,700 ISK</span></li>
+        <li><span class="menu-name">Dessert of the day</span><span class="menu-dots"></span><span class="menu-price">1,800 ISK</span></li>
+        <li><span class="menu-name">Cake buffet</span><span class="menu-dots"></span><span class="menu-price">2,800 ISK</span></li>
+        <li><span class="menu-name">Coffee, tea or hot chocolate</span><span class="menu-dots"></span><span class="menu-price">580 ISK</span></li>
+      </ul>
+      <p class="food_note t-title-italic">Dinner service and food tours all year. We take dietary needs into careful consideration.</p>
+    </div>
+  </section>
+
+  <!-- ============ 9 · CONTACT / FOOTER ============ -->
+  <footer class="footer" id="contact" data-nav-section data-nav-theme-val="light">
+    <div class="container-large">
+      <div class="footer_head">
+        <h2 class="footer_title">The valley is open</h2>
+        <p class="footer_sub t-title-italic">Write or call, and we will help you plan the whole stay.</p>
+      </div>
+      <div class="footer_grid">
+        <div class="footer_col">
+          <p class="layout-title_sm is-faded">Talk to us</p>
+          <a class="footer_big" href="tel:+3544408822">+354 440 8822</a>
+          <a class="footer_big" href="mailto:info@wilderness.is">info@wilderness.is</a>
+        </div>
+        <div class="footer_col">
+          <p class="layout-title_sm is-faded">Find us</p>
+          <p class="t-body">Wilderness Center / Óbyggðasetur Íslands<br>Norðurdalur í Fljótsdal<br>701 Egilsstaðir, Iceland</p>
+          <p class="t-body is-faded">N64 57.874 W15 09.199</p>
+        </div>
+        <div class="footer_col">
+          <p class="layout-title_sm is-faded">The farm</p>
+          <p class="t-body">Day tours, accommodation, exhibition and restaurant.<br>Exhibition open daily 11 to 18, 15 May to 30 September.<br>Winter opening on request.</p>
+        </div>
+      </div>
+      <div class="footer_base">
+        <p class="t-detail">Kt. 540314-0630</p>
+        <div class="footer_links">
+          <a href="https://www.facebook.com/wilderness.is/" rel="noopener" target="_blank">Facebook</a>
+          <a href="https://www.instagram.com/wilderness_center_iceland" rel="noopener" target="_blank">Instagram</a>
+          <a href="https://wilderness.is/terms/" rel="noopener" target="_blank">Terms</a>
+        </div>
+        <p class="t-detail">Design proposal, not the live site</p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- flyout: how a visit works -->
+<div class="flyout" id="flyout" aria-hidden="true">
+  <button class="flyout_overlay" id="flyoutOverlay" tabindex="-1" aria-label="Close panel"></button>
+  <aside class="flyout_sheet" role="dialog" aria-modal="true" aria-labelledby="flyoutTitle" data-lenis-prevent>
+    <button class="flyout_close" id="flyoutClose" aria-label="Close">Close</button>
+    <h3 class="flyout_title" id="flyoutTitle">How a visit works</h3>
+    <ol class="flyout_steps">
+      <li><h4>1. Choose your dates</h4><p>Summer for the full valley, winter on request for the quiet one.</p></li>
+      <li><h4>2. Book the stay and tours</h4><p>Write to us or book online. We help pair lodging with the right tours.</p></li>
+      <li><h4>3. Drive from Egilsstaðir</h4><p>Follow Lagarfljót into Fljótsdalur until the road ends in Norðurdalur.</p></li>
+      <li><h4>4. Cross the wooden bridge</h4><p>Park, walk over the bridge, and step into the spirit of the past.</p></li>
+      <li><h4>5. The valley takes over</h4><p>Ride, hike, soak, eat, and sleep in a museum.</p></li>
+    </ol>
+  </aside>
+</div>
+<button class="flyout_tab" id="flyoutTab" aria-controls="flyout" aria-expanded="false">How a visit works</button>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor_line-v" id="curV"></span>
+  <span class="cursor_line-h" id="curH"></span>
+  <span class="cursor_dot" id="curDot"></span>
+  <span class="cursor_label" id="curLabel"></span>
+</div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
