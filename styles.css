@@ -625,9 +625,102 @@ body:not([data-nav-theme="dark"]) nav .btn:hover { background: rgba(255,255,255,
   .nav-contain { grid-template-columns: auto 1fr auto; gap: .5rem; padding-inline: .75rem; }
   .nav-ul.nav-left li:not(:first-child), .nav-ul.nav-right li:not(:last-child) { display: none; }
   .nav-logo_sub { display: none; }
-  .nav-logo_mark { font-size: .9rem; }
+  .nav-logo_mark { font-size: .9rem; letter-spacing: .12em; }
 
-  .hero_title { font-size: 5rem; margin-bottom: -.5rem; }
-  .hero_kicker { max-width: 13rem; font-size: 1rem; }
-  .hero_contain.top { flex-direction: column; align-items: flex-start; gap: 1.2rem; justify-content: flex-start; padding-top: 7rem; }
-  
+  .hero_title { font-size: 4.6rem; }
+  .hero_title-contain { padding-bottom: .8rem; }
+  .hero_kicker { max-width: 15rem; font-size: 1.05rem; }
+  .hero_contain.top { flex-direction: column; align-items: flex-start; gap: 1.1rem; justify-content: flex-start; padding-top: 6.5rem; }
+
+  /* the manifesto is the one long read on the page: set for LINE LENGTH
+     (~32 chars) rather than scaled down from the desktop display size, and
+     drop the 2-column indent that was orphaning the first line */
+  .manifesto { padding: 6rem 0 5.5rem; }
+  .manifesto_col { grid-column: 1 / -1; gap: 1.8rem; }
+  .manifesto_text { font-size: 1.35rem; line-height: 1.4; text-indent: 0; letter-spacing: .005em; }
+  .scribble-el { width: 9rem; left: -.6rem; }
+
+  .season_inner { height: 100svh; }
+  .season_content { grid-template-columns: 1fr; align-items: start; gap: 1.6rem; padding-bottom: 2.4rem; }
+  .season_data { text-align: left; gap: .9rem; }
+  .season .h3-serif { font-size: 1.9rem; }
+  .season_head { max-width: none; }
+  .data-num { font-size: 1.4rem; }
+
+  .title-band { padding: 6rem 0 3rem; }
+  .section-title { font-size: 2.3rem; }
+  .title-band_sub { font-size: .95rem; }
+
+  .flick { padding-bottom: 6rem; }
+  .card-flick { flex-direction: column; height: auto; gap: .55rem; }
+  .card-flick_item, .card-flick_item.is-active { width: 100% !important; height: 24rem; flex: 0 0 auto; }
+  .card-flick_content { opacity: 1 !important; padding: 1.5rem; }
+  .card-flick_shade { opacity: 1 !important; }
+  .card-flick_side { display: none; }
+  .card-flick_title { font-size: 1.6rem; }
+  .card-flick_excerpt { font-size: .875rem; }
+
+  .quote-section { height: auto; padding: 5rem 0; }
+  .quote-sticky { position: static; height: auto; }
+  .t-quote { font-size: 1.3rem; }
+
+  .rail_panel:not(.rail_panel--title):not(.rail_panel--full) { width: 100vw; padding-right: 0; padding-inline: 1rem; }
+  .rail_panel--full { padding-inline: 1rem; }
+  .rail_title { font-size: 2.2rem; white-space: normal; max-width: 90vw; }
+  .camp-card { width: 100%; aspect-ratio: 4 / 5; max-height: 74svh; padding: .8rem; }
+  .camp-card_title { font-size: 1.7rem; }
+  .camp-card_excerpt { max-width: 100%; font-size: .8125rem; }
+  .camp-card_content { padding: 1.6rem 1rem; gap: .8rem; }
+  .camp-card_coords { font-size: .75rem; }
+  .rail_quote { padding-inline: 1.2rem; }
+
+  .journey { padding-top: 6rem; }
+  .journey_head { grid-template-columns: 1fr; text-align: left; gap: 1.6rem; padding-bottom: 2.5rem; }
+  .journey_head-center { text-align: left; align-items: flex-start; }
+  .journey_head-center .h3-serif { font-size: 1.9rem; }
+  .journey_head .t-right { text-align: left; }
+  .journey_code { font-size: 4.6rem; gap: 1rem; }
+  .journey_code-div { width: 2.2rem; }
+  .journey_map-outer { margin-top: 2rem; }
+  .journey_thread { padding: 3rem 0 2rem; }
+  .waypoint, .waypoint.is-last { width: 82vw; margin-bottom: 4.5rem; }
+  .waypoint.is-right { margin-left: 14%; }
+  .waypoint.is-left { margin-left: 4%; }
+  .waypoint_name { font-size: 1.6rem; }
+  .waypoint_caption { font-size: 1rem; }
+  .journey_data { padding-top: 2.5rem; }
+  .journey_data ul { grid-template-columns: 1fr; gap: 1.2rem; padding-bottom: 4rem; }
+  .journey_data .data-num { font-size: 1.9rem; }
+
+  .exhibit { padding: 5rem 0; }
+  .exhibit_layout { grid-template-columns: 1fr; gap: 2rem; }
+  .exhibit .h3-serif { font-size: 1.9rem; }
+  .exhibit_body { max-width: none; }
+  .exhibit_facts div { max-width: none; }
+
+  .food { padding: 5rem 0 6rem; }
+  .food_head { padding-bottom: 2.2rem; }
+  .food_strip { grid-template-columns: 1fr; gap: .55rem; }
+  .food_menu { margin-top: 2.5rem; }
+  .menu-name, .menu-price { font-size: .9375rem; }
+  .food_note { margin-top: 1.8rem; }
+
+  .footer { padding: 6rem 0 2rem; }
+  .footer_title { font-size: 2.6rem; }
+  .footer_head { padding-bottom: 3rem; }
+  .footer_grid { grid-template-columns: 1fr; gap: 2.4rem; padding-bottom: 3.5rem; }
+  .footer_big { font-size: 1.4rem; padding-block: .62rem; }
+  .footer_base { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .footer_links { gap: .9rem; flex-wrap: wrap; }
+
+  /* touch targets: every control clears 44px on a phone */
+  .cta-nav_wrap { padding-bottom: max(.8rem, env(safe-area-inset-bottom)); }
+  .cta-nav_item { padding: 1rem 1.05rem; }
+  .footer_links a { padding: 1rem .6rem; }
+  .flyout_sheet { width: 100vw; padding: 4.5rem 1.4rem; }
+  .flyout_tab { font-size: .8125rem; padding: 1.15rem 1.1rem; }
+  .flyout_close { padding: 1rem 1.15rem; }
+  .flyout_title { font-size: 1.9rem; max-width: 100%; }
+
+  .cursor { display: none; }
+}

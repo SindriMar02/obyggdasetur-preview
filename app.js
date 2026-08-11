@@ -251,10 +251,24 @@
       { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', clearProps: 'clipPath',
         scrollTrigger: { trigger: railOuter, start: 'top bottom', end: 'top top', scrub: true, refreshPriority: 6 } });
   });
-  gsap.fromTo(railTitle, { fontSize: '2.4rem' }, {
-    fontSize: '5.625rem', ease: 'none',
-    scrollTrigger: { trigger: railOuter, start: 'top bottom', end: 'top top', scrub: true, refreshPriority: 6 }
-  });
+  /* The rail title's size is animated, so GSAP writes it INLINE and the mobile
+     media query can never win. Read the sizes per breakpoint here instead, and
+     rebuild them on resize with the rest of the rail. */
+  var railType = function () {
+    return window.matchMedia('(min-width: 769px)').matches
+      ? { enter: '2.4rem', grown: '5.625rem', settled: '3.75rem' }
+      : { enter: '1.45rem', grown: '2.2rem', settled: '1.85rem' };
+  };
+  var railGrow = null;
+  function buildRailGrow() {
+    if (railGrow) { railGrow.scrollTrigger && railGrow.scrollTrigger.kill(); railGrow.kill(); }
+    var t = railType();
+    railGrow = gsap.fromTo(railTitle, { fontSize: t.enter }, {
+      fontSize: t.grown, ease: 'none',
+      scrollTrigger: { trigger: railOuter, start: 'top bottom', end: 'top top', scrub: true, refreshPriority: 6 }
+    });
+  }
+  buildRailGrow();
   gsap.fromTo(railBehind, { yPercent: 18 }, {
     yPercent: 0, ease: 'none',
     scrollTrigger: { trigger: railOuter, start: 'top 60%', end: 'top top', scrub: true, refreshPriority: 6 }
@@ -299,8 +313,9 @@
         pin: true, scrub: true, invalidateOnRefresh: true, refreshPriority: 5
       }
     });
-    railTl.fromTo(railTitle, { fontSize: '5.625rem' },
-      { fontSize: '3.75rem', ease: 'none', duration: 0.5 * sText }, 0);
+    var rt = railType();
+    railTl.fromTo(railTitle, { fontSize: rt.grown },
+      { fontSize: rt.settled, ease: 'none', duration: 0.5 * sText }, 0);
     var tCurtain = 0.5 * sText;
     railTl.to(curtainRects[2], { attr: { width: 0 }, ease: 'none', duration: 0.5 * sCurtain }, tCurtain);
     railTl.to(curtainRects[1], { attr: { width: 0 }, ease: 'none', duration: 0.75 * sCurtain }, tCurtain);
@@ -382,6 +397,7 @@
   window.addEventListener('resize', function () {
     clearTimeout(rto);
     rto = setTimeout(function () {
+      buildRailGrow();   /* re-reads the breakpoint's type sizes */
       buildRail();
       ScrollTrigger.refresh();
     }, 250);
