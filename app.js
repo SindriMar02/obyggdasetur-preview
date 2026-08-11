@@ -199,12 +199,14 @@
     var flick = document.getElementById('cardFlick');
     var items = Array.prototype.slice.call(flick.querySelectorAll('.card-flick_item'));
     var n = items.length;
-    /* subtract flex gap so the row never overflows: total gap = .55rem × (n−1) */
-    var wActive = 'calc(50% - ' + (0.55 * (n - 1) * 0.5).toFixed(3) + 'rem)';
-    var wRest = 'calc(' + (50 / (n - 1)).toFixed(3) + '% - ' + (0.55 * (n - 1) * 0.5 / (n - 1)).toFixed(3) + 'rem)';
+    /* flex-GROW shares, not widths: a calc() width cannot be interpolated, so the
+       collapsing card used to hold full size and snap at the end, leaving two
+       cards at 50% and overflowing the row. Active takes (n-1) shares against
+       1 each, which is exactly the reference's 50% / 10% split at n = 6. */
+    var GROW_ACTIVE = n - 1, GROW_REST = 1;
     var current = 0;
     items.forEach(function (item, i) {
-      gsap.set(item, { width: i === 0 ? wActive : wRest });
+      gsap.set(item, { flexGrow: i === 0 ? GROW_ACTIVE : GROW_REST });
       gsap.set(item.querySelector('.card-flick_content'), { opacity: i === 0 ? 1 : 0 });
     });
     var tl = null;
@@ -216,7 +218,7 @@
       items.forEach(function (item, i) {
         var on = i === idx;
         item.classList.toggle('is-active', on);
-        tl.to(item, { width: on ? wActive : wRest, duration: 0.75, ease: 'expo' }, 0);
+        tl.to(item, { flexGrow: on ? GROW_ACTIVE : GROW_REST, duration: 0.75, ease: 'expo' }, 0);
         tl.to(item.querySelector('.card-flick_content'), { opacity: on ? 1 : 0, duration: on ? 0.75 : 0.2, ease: on ? 'power1.out' : 'expo.out' }, 0);
       });
     }
@@ -225,8 +227,9 @@
       item.addEventListener('focusin', function () { activate(i); });
     });
     return function () {
+      if (tl) tl.kill();
       items.forEach(function (item) {
-        gsap.set(item, { clearProps: 'width' });
+        gsap.set(item, { clearProps: 'flexGrow,width' });
         gsap.set(item.querySelector('.card-flick_content'), { clearProps: 'opacity' });
       });
     };
